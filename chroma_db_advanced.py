@@ -42,7 +42,6 @@ SAMPLE_DOCS = [
     ),
 ]
 
-
 def chroma_basics():
     with tempfile.TemporaryDirectory() as tempdir:
         #create vector store from documents(modern way to use it.

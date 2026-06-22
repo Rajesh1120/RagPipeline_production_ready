@@ -15,14 +15,20 @@ Phase 1: Indexing
     3. embeddings -> chunks to embeddings (meaning full) -> openai embedding function 
     4. store in db -> chroma 
 
+Intermediate: to connect the phase one and phase 2
+    database <=> retriever (as_retriever()) => prompt => llm => output parser
+
+
 Phase 2: Querying 
-    1. user question
+    1. user question (last step in terms of coding  )
     2. convert to embeddings
     3. search db
     4. retrieval from the docs
     5. llms to generate the answer
     6.Answer which in the structured manner
 
+
+    
 
 """
 
@@ -110,7 +116,6 @@ def demo_basic_rag():
     vector_store=create_kb()
     retriever= vector_store.as_retriever(
         search_type="similarity", search_kwargs={"k":2}
-
     )
     # RAG Prompt Template
     prompt= ChatPromptTemplate.from_template(
@@ -121,7 +126,7 @@ def demo_basic_rag():
             Question: {question}
             Answer:
             Make sure to answer in a concise manner, 
-            and if you don't know the answer, just say "I don't know.
+            and if you don't know the answer, just say "I don't know."
         """
                 )
     
