@@ -6,3 +6,4 @@ langchain-openai
 langchain-anthropic
 chromadb
 langchain_chroma
+langchain_text_splitters
